@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+	xmlns:local="clr-namespace:AgendaAndroid"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="AgendaAndroid.Home"
+	Title="Inicio y Tareas">
+	<ContentPage.Content>  
+		<ScrollView> 
+
+			<StackLayout x:Name="layMain" Margin="0,5,10,0" BackgroundColor="Black">
+				<Image x:Name="elvia" Scale="0.4" Source="Resources/eespego.png" />
+				<Frame x:Name="layforItemLabel" BackgroundColor="Cyan"
+					Padding="24" CornerRadius="10" Margin="10,0,10,0" >
+					<Label x:Name="frase" Text="{Binding Texto}"
+						HorizontalTextAlignment="End"  FontSize="18" >
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding CambiarFraseCommand}" 
+								NumberOfTapsRequired="1" Tapped="OnRandomFraseTapped" />
+						</Label.GestureRecognizers>
+					</Label>
+				</Frame>
+				<Label Text="TabbedPage Xamarin Forms C# App" FontSize="18"
+					Padding="30,10,30,10" HorizontalTextAlignment="Center" TextColor="MediumSlateBlue" />
+					<Grid>
+						<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						
+						<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+					
+						<Entry x:Name="nameEntry" Placeholder="Ingrese Tarea y si desea, fecha y hora "
+							ClearButtonVisibility="WhileEditing" Keyboard="Text"
+							Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+						<DatePicker x:Name="fechador" DateSelected ="SelectingDate"
+							Grid.Row="1" Grid.Column="0" />
+						<TimePicker x:Name="timePicker" Grid.Row="1" Grid.Column="1" PropertyChanged="OnTimePickerPropertyChanged" />
+						<CheckBox x:Name="subscribed" Color="White" Margin="15,0"
+							Grid.Row="2" Grid.Column="0" />
+						<Button Text="Agregar Tarea" CornerRadius="13" 
+							Clicked="AgregarTarea_Click" BackgroundColor="DarkCyan"
+							Grid.Row="2" Grid.Column="1"	/>
+					</Grid>
+				<CollectionView x:Name="collectionView">
+					<CollectionView.ItemTemplate>
+						<DataTemplate>
+							<StackLayout>
+								<Label x:Name="id" Text="{Binding Id}" FontAttributes="Bold"
+									FontSize="12" Margin="10,0" />
+								<Label x:Name="nombre" Text="{Binding Name}" FontAttributes="Bold"
+									FontSize="Medium" Margin="10,0">
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding SelectUserCommand}" CommandParameter="{Binding .}"
+											Tapped="OnItemTapped"/>
+									</Label.GestureRecognizers>
+								</Label>
+								<Label x:Name="estado" Text="Completado"
+									TextColor="GreenYellow" Margin="10,0" FontSize="Small" >
+									<Label.Triggers>
+										<DataTrigger TargetType="Label" Binding="{Binding Subscribed}" Value="True">
+											<Setter Property="Text" Value="En espera" />
+										</DataTrigger>
+									</Label.Triggers>
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding SelectUserCommand}" CommandParameter="{Binding .}"
+											Tapped="OnStateTapped"/>
+									</Label.GestureRecognizers>
+								</Label>
+							</StackLayout>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>
