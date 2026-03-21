@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+	xmlns:local="clr-namespace:AgendaAndroid"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="AgendaAndroid.Frases"
+	Title="Portal de Frases">
+	
+	<ContentPage.Content>  
+		<ScrollView>  
+			<StackLayout x:Name="LayFrases" Background="Black">
+				<Label x:Name="Titulo" TextColor="Cyan" FontSize="20"
+					TextDecorations="Underline"/>
+				<Label x:Name="Intro" TextColor="LightBlue" FontSize="17" />
+				<Frame CornerRadius="10" Padding="0,0">  
+					<Grid BackgroundColor="Blue" >
+						<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						</Grid.RowDefinitions>
+							
+						<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition />
+						<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						
+							<Editor x:Name="editor" Placeholder="Edite o pegue su frase acá"
+								Keyboard="Text" Grid.RowSpan="2" TextChanged="OnEditorTextChanged"
+								Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+	
+						<Label x:Name="Autor" TextColor="White" Text="Autor:"
+								Grid.Row="2" Grid.Column="0" />
+						<Entry x:Name="entryAutor" Keyboard="Text" Grid.Row="2" Grid.Column="1" />
+						<!--	<CheckBox x:Name="subscribed" Color="White" Margin="15,0"
+								Grid.Row="2" Grid.Column="0" />-->
+						<Button x:Name="update" Text="Update" Grid.Row="2" Grid.Column="2"
+							IsEnabled="False" Clicked="UpdateClick" />
+					</Grid>
+				</Frame>
+					<Button Text="Archivar Entrada" CornerRadius="13" Clicked="OnSaveFraseClick"
+							BackgroundColor="DarkCyan" Margin="70,0,70,0" />
+				<CollectionView x:Name="frasesView">
+					<CollectionView.ItemTemplate>
+						<DataTemplate>
+							<StackLayout>
+								<Label x:Name="id" Text="{Binding Id}" FontAttributes="Bold"
+									FontSize="12" Margin="10,0" />
+								<Label x:Name="frase" Text="{Binding Texto}" FontAttributes="Bold"
+									FontSize="Medium" Margin="10,0" TextColor="White" >
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer Tapped="OnFraseTapped" Command="{Binding SelectUserCommand}" CommandParameter="{Binding .}" />
+									</Label.GestureRecognizers>
+								</Label>
+								<Label x:Name="autor" Text="{Binding Autor}"
+									TextColor="GreenYellow" Margin="10,0" FontSize="Small" >
+
+									<Label.GestureRecognizers>
+										<TapGestureRecognizer Command="{Binding SelectUserCommand}" CommandParameter="{Binding .}" />
+									</Label.GestureRecognizers>
+								</Label>
+							</StackLayout>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
+			</StackLayout>	
+		</ScrollView>
+	</ContentPage.Content>	
+</ContentPage>
