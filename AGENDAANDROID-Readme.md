@@ -15,6 +15,6 @@ para poder agregar las frases de su preferencia.
 ![Captura de pantalla Inicio y Tareas](/Inicio_y_Tareas.png)
 
 ## Captura de pantalla "Portal de Frases"
-![Captura de pantalla "Portal de Frases"] (/PortalFrases.png)
+![Captura de pantalla "Portal de Frases"](/PortalFrases.png)
 
 
