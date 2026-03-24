@@ -10,4 +10,11 @@ mientras que sin seleccionar equivale a Completado. Esta página incluye un Labe
 llama, en forma aleatoria, una Frase de la Base de Datos en la página "Portal de Frases", si aún no hay frase alguna en la base de datos, 
 habra un aviso de que no hay frases disponibles, en tal caso, el usuario podra ir a la página Portal de Frases y visitar los sitios web en su parte inferior 
 para poder agregar las frases de su preferencia.
-![Captura de pantalla Inicio y Tareas](/PortalFrases.png)
+## Captura de pantalla "Inicio y Tareas"
+
+![Captura de pantalla Inicio y Tareas](/Inicio_y_Tareas.png)
+
+## Captura de pantalla "Portal de Frases"
+![Captura de pantalla "Portal de Frases"] (/PortalFrases.png)
+
+
