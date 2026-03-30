@@ -9,7 +9,7 @@
 		<ScrollView> 
 
 			<StackLayout x:Name="layMain" Margin="0,5,10,0" BackgroundColor="Black">
-				<Image x:Name="elvia" Scale="0.4" Source="Resources/eespego.png" />
+				<Image x:Name="Agendroid" Scale="0.4" Source="Resources/agendroid.png" />
 				<Frame x:Name="layforItemLabel" BackgroundColor="Cyan"
 					Padding="24" CornerRadius="10" Margin="10,0,10,0" >
 					<Label x:Name="frase" Text="{Binding Texto}"
