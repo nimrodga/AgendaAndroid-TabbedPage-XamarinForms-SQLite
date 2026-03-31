@@ -12,9 +12,9 @@ habra un aviso de que no hay frases disponibles, en tal caso, el usuario podra i
 para poder agregar las frases de su preferencia.
 ## Captura de pantalla "Inicio y Tareas"
 
-![Captura de pantalla Inicio y Tareas](/Inicio_y_Tareas.png)
+![Captura de pantalla Inicio y Tareas](/inicioYtareas.png)
 
 ## Captura de pantalla "Portal de Frases"
-![Captura de pantalla "Portal de Frases"](/PortalFrases.png)
-
+![Captura de pantalla "Portal de Frases"](/portalDfrases.png)
+![ ](/portalDfrases2.png)
 
